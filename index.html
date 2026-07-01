@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>إلى سماسيمو الحبيبة ❤️</title>
-    
-    <!-- الخطوط العربية واللاتينية الفخمة -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>❤️ سماسيمو ❤️</title>
+    <!-- استيراد خطوط جوجل الجميلة والمميزة للغة العربية والإنجليزية الرومانسية -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -34,36 +33,42 @@
     <!-- كانفاس المؤثرات الرومانسية المتساقطة -->
     <canvas id="ambient-canvas"></canvas>
 
-    <!-- 1. شاشة تسجيل الدخول الزجاجية الآمنة -->
+    <!-- شاشة تسجيل الدخول الزجاجية الفاخرة -->
     <div class="login-container" id="login-container">
       <div class="glass-card" id="login-card">
         <div class="login-header">
-          <h1>سماسيمو ❤️</h1>
-          <p>هذا المكان مخصص لقلبكِ فقط.. يرجى إدخال كلمة المرور الخاصة بكِ لرؤية المفاجأة</p>
+          <h1>سماسيمو <span class="decorative-heart">❤️</span></h1>
+          <p>أدخلي كلمة المرور السرية لفتح عالم الحب الخاص بنا ✨</p>
         </div>
-        <form onsubmit="handleLogin(event)">
+        <form id="login-form" onsubmit="handleLogin(event)">
           <div class="input-group">
-            <input type="password" id="password-input" placeholder="اكتبِ كلمة المرور السرية هنا..." autocomplete="current-password" required>
+            <input 
+              type="password" 
+              id="password-input" 
+              placeholder="اكتبِ كلمة المرور هنا..." 
+              autocomplete="current-password"
+              required
+            />
           </div>
-          <button type="submit" class="btn-romantic">دخول إلى عالمنا 🌸</button>
+          <button type="submit" class="btn-romantic">دخول إلى قلبك 💖</button>
+          <div class="error-message" id="error-message">🤭 دي مش كلمة سماسيمو 💖</div>
         </form>
-        <div class="error-message" id="error-message">بلاش غباء يا روحي الباسورد غلط! 😂❤️</div>
       </div>
     </div>
 
-    <!-- 2. محتوى الموقع الرئيسي الفخم (يظهر بعد تسجيل الدخول بنجاح) -->
+    <!-- المحتوى الرئيسي الفاخر (يظهر بمؤثرات ناعمة بعد الدخول) -->
     <div class="main-content" id="main-content">
       <div class="romantic-hub">
         
-        <!-- عنوان الحب الكبير -->
+        <!-- عنوان سماسيمو المتوهج -->
         <div class="love-title-container">
-          <div class="love-title">حكايتنا الرائعة</div>
-          <div class="love-subtitle">Smasemo & Mamdouh</div>
+          <h1 class="love-title">❤️ سماسيمو ❤️</h1>
+          <div class="love-subtitle">Our Love Story is Eternal</div>
         </div>
 
-        <!-- عداد الحب الزجاجي الفخم -->
+        <!-- عداد الحب الذي يحسب الأيام والساعات والدقائق والثواني بدقة منذ 23/06/2026 الساعة 11:14 مساءً -->
         <div class="counter-card">
-          <div class="counter-card-title">كل ثانية معاكي هي عمر جديد.. نحن معًا منذ:</div>
+          <div class="counter-card-title">عمر حبنا الجميل 💖</div>
           <div class="counter-grid">
             <div class="counter-item">
               <div class="counter-value" id="days-val">00</div>
@@ -84,121 +89,122 @@
           </div>
         </div>
 
-        <!-- زر التحكم في الموسيقى الرومانسية يدوياً -->
-        <div class="song-btn-container">
-          <button onclick="document.getElementById('romantic-song').paused ? document.getElementById('romantic-song').play() : document.getElementById('romantic-song').pause()" class="song-btn">
-            <span>🎵 تشغيل / إيقاف الأغنية الرومانسية</span>
-          </button>
-        </div>
-
-        <!-- ظرف الرسالة الرومانسية السحرية -->
+        <!-- ظرف الرسالة الرومانسي الذي يفتح بلمسة ساحرة -->
         <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
-          <div class="envelope-flap"></div>
-          <div class="envelope-pockets"></div>
-          <div class="letter-inside">
-            <h3>اضغطِ لفتح الرسالة ❤️</h3>
-            <p>رسالة حب سحرية كتبت خصيصاً لكِ بمداد من المشاعر الصادقة...</p>
+          <div class="envelope-container">
+            <div class="envelope-flap"></div>
+            <div class="wax-seal"></div>
+            <div class="envelope-pockets"></div>
+            <div class="envelope-bottom"></div>
+            <div class="letter-inside">
+              <h3>سماسيمو الغالية ❤️</h3>
+              <p>اضغطي لفتح الرسالة كاملة وسماع دقات قلبي...</p>
+            </div>
           </div>
-          <div class="envelope-bottom"></div>
-          <div class="wax-seal"></div>
         </div>
 
-        <!-- معرض الصور الفني التفاعلي -->
+        <!-- زر تشغيل الأغنية الرسمية للحب -->
+        <div class="song-btn-container">
+          <a href="https://youtu.be/LcOGDtgOuOM?si=R-LknJzmJjgyziPE" target="_blank" rel="noopener noreferrer" class="song-btn">
+            <span>🎵 شغلي أغنيتنا ❤️</span>
+          </a>
+        </div>
+
+        <!-- معرض الصور الفني -->
         <div class="gallery-container">
           <div class="gallery-header">
-            <h2>لحظاتنا الجميلة معًا</h2>
+            <h2>معرض لحظاتنا السعيدة</h2>
           </div>
           <div class="gallery-grid">
             
-            <!-- كارت صورة 1 -->
-            <div class="gallery-item" onclick="openLightbox('IMG20260626231616.jpg', 'ضحكتكِ تملأ دنيتي فرحاً 🌸')">
+            <!-- الصورة الأولى -->
+            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0205.jpg', 'ضحكتك اللي بتنور حياتي ✨')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة الأولى</span></div>
-                <img src="IMG20260626231616.jpg" alt="سماسيمو" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG-20260627-WA0205</span></div>
+                <img src="IMG-20260627-WA0205.jpg" alt="سماسيمو الحب" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">ضحكتكِ تملأ دنيتي فرحاً 🌸</div>
+              <div class="gallery-caption">ضحكتك اللي بتنور حياتي ✨</div>
             </div>
 
-            <!-- كارت صورة 2 -->
-            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0233.jpg', 'كل ثانية بجانبك هي عيد لقلبي ✨')">
+            <!-- الصورة الثانية -->
+            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0214.jpg', 'تفاصيلك الجميلة اللي بحبها 🌸')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة الثانية</span></div>
-                <img src="IMG-20260627-WA0233.jpg" alt="لحظتنا" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG-20260627-WA0214</span></div>
+                <img src="IMG-20260627-WA0214.jpg" alt="تفاصيل سماسيمو" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">كل ثانية بجانبك هي عيد لقلبي ✨</div>
+              <div class="gallery-caption">تفاصيلك الجميلة اللي بحبها 🌸</div>
             </div>
 
-            <!-- كارت صورة 3 -->
-            <div class="gallery-item" onclick="openLightbox('IMG_20260626_233444_690.jpg', 'أميرة قلبي ونور عيوني الوحيدة 👑')">
+            <!-- الصورة الثالثة -->
+            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0233.jpg', 'معاكي كل ثانية ليها طعم تاني 💞')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة الثالثة</span></div>
-                <img src="IMG_20260626_233444_690.jpg" alt="أميرتي" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG-20260627-WA0233</span></div>
+                <img src="IMG-20260627-WA0233.jpg" alt="لحظات مع سماسيمو" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">أميرة قلبي ونور عيوني الوحيدة 👑</div>
+              <div class="gallery-caption">معاكي كل ثانية ليها طعم تاني 💞</div>
             </div>
 
-            <!-- كارت صورة 4 -->
-            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0205.jpg', 'في عينيكِ أرى وطني وأماني الدافيء 🥰')">
+            <!-- الصورة الرابعة -->
+            <div class="gallery-item" onclick="openLightbox('IMG20260626231616.jpg', 'اليوم ده هيفضل محفور في قلبي 📅')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة الرابعة</span></div>
-                <img src="IMG-20260627-WA0205.jpg" alt="حبيبتي" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG20260626231616</span></div>
+                <img src="IMG20260626231616.jpg" alt="توثيق اللحظة" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">في عينيكِ أرى وطني وأماني الدافيء 🥰</div>
+              <div class="gallery-caption">اليوم ده هيفضل محفور في قلبي 📅</div>
             </div>
 
-            <!-- كارت صورة 5 -->
-            <div class="gallery-item" onclick="openLightbox('IMG_2931.jpg', 'حفظكِ الله لي يا نبض قلبي للأبد 💍')">
+            <!-- الصورة الخامسة -->
+            <div class="gallery-item" onclick="openLightbox('IMG_20260626_233444_690.jpg', 'نظرة عيونك اللي بتنسيني الدنيا 👀❤️')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة الخامسة</span></div>
-                <img src="IMG_2931.jpg" alt="حب الأبد" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG_20260626_233444_690</span></div>
+                <img src="IMG_20260626_233444_690.jpg" alt="نظرة العيون" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">حفظكِ الله لي يا نبض قلبي للأبد 💍</div>
+              <div class="gallery-caption">نظرة عيونك اللي بتنسيني الدنيا 👀❤️</div>
             </div>
 
-            <!-- كارت صورة 6 -->
-            <div class="gallery-item" onclick="openLightbox('IMG-20260627-WA0214.jpg', 'أنتِ النعمة العظيمة التي أحمد الله عليها كل يوم 🌹')">
+            <!-- الصورة السادسة -->
+            <div class="gallery-item" onclick="openLightbox('IMG_2931.jpg', 'روحي وقلبي وكل دنيتي 🌹')">
               <div class="image-wrapper">
-                <div class="image-placeholder">❤️<span>الصورة السادسة</span></div>
-                <img src="IMG-20260627-WA0214.jpg" alt="النعمة" onload="hidePlaceholder(this)" onerror="this.style.opacity='0'">
+                <div class="image-placeholder">❤️<span>IMG_2931</span></div>
+                <img src="IMG_2931.jpg" alt="روحي وقلبي" onerror="hidePlaceholder(this)" onload="hidePlaceholder(this)">
               </div>
-              <div class="gallery-caption">أنتِ النعمة العظيمة التي أحمد الله عليها كل يوم 🌹</div>
+              <div class="gallery-caption">روحي وقلبي وكل دنيتي 🌹</div>
             </div>
 
           </div>
         </div>
 
-        <!-- زر تحميل الكود الكامل كملف ZIP -->
+        <!-- تذييل رقيق للموقع مع زر التحميل السحابي المريح للـ ZIP -->
         <div class="download-zip-btn-container">
           <a href="project.zip" download="smasemo-love-project.zip" class="download-zip-btn">
             <span>📦 تحميل كود الموقع كاملاً (ZIP) للرفع على GitHub Pages</span>
           </a>
         </div>
-
-        <!-- التذييل الفخم للموقع -->
         <footer class="romantic-footer">
-          <p>صُنع بكل حب لـ سماسيمو بواسطة ممدوح ❤️ © 2026</p>
+          <p>صنع بكل حب من أجل سماسيمو ❤️ جميع الأوقات تنبض بذكرى لقائنا.</p>
         </footer>
 
       </div>
     </div>
 
-    <!-- نافذة عرض الرسالة الكاملة (Typewriter Modal) -->
+    <!-- نافذة قراءة الرسالة الشاملة -->
     <div class="letter-modal" id="letter-modal">
       <div class="letter-card">
-        <button class="letter-close" onclick="closeLetter()">×</button>
+        <button class="letter-close" onclick="closeLetter()">&times;</button>
         <div class="letter-text-body" id="letter-text-body"></div>
       </div>
     </div>
 
-    <!-- نافذة تكبير الصور الفاخرة (Lightbox Gallery) -->
+    <!-- نافذة تكبير الصور الاحترافية (Lightbox) -->
     <div class="lightbox-modal" id="lightbox-modal">
       <div class="lightbox-wrapper">
-        <button class="lightbox-close" onclick="closeLightbox()">×</button>
-        <img src="" id="lightbox-image" class="lightbox-image" alt="تكبير الصورة">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="تكبير الصورة">
         <div class="lightbox-caption" id="lightbox-caption"></div>
       </div>
     </div>
 
+    <!-- سكريبت الجافاسكريبت التفاعلي الرومانسي الكامل والجاهز للتشغيل المباشر -->
     <script src="script.js" defer></script>
   </body>
-</html>
+  </html>
