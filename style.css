@@ -1,0 +1,918 @@
+/* تهيئة عامة للموقع وتثبيت الألوان الفريدة */
+:root {
+  --pink-primary: #ff4b72;
+  --pink-soft: #ff85a1;
+  --pink-dark: #d81b60;
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --text-white: #ffffff;
+  --shadow-glow: 0 8px 32px 0 rgba(255, 75, 114, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #0f0511; /* خلفية داكنة غنية تبرز توهج اللون الوردي والبنفسجي */
+  overflow-x: hidden;
+  color: var(--text-white);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* خلفية متحركة متغيرة الألوان بنعومة فائقة */
+.bg-gradient-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: radial-gradient(circle at 20% 30%, #4a0e2e 0%, #15051a 50%, #08010d 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* كانفاس المؤثرات المتساقطة (قلوب، ورود، نجوم) لتجربة بصرية فائقة الدقة */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* نافذة تسجيل الدخول */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* بطاقة الزجاج المضيئة (Glassmorphism) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+  transform: translateY(0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 75, 114, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 8px 40px rgba(255, 75, 114, 0.4);
+}
+
+/* عنوان صفحة تسجيل الدخول */
+.login-header h1 {
+  font-family: 'Amiri', serif;
+  font-size: 2.8rem;
+  color: var(--pink-soft);
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(255, 133, 161, 0.6);
+  animation: pulseHeart 2s infinite ease-in-out;
+}
+
+.login-header p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 30px;
+}
+
+/* شكل الإدخال الأنيق مع التوهج */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.input-group input:focus {
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 15px rgba(255, 75, 114, 0.4), inset 0 2px 5px rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* الأزرار الوردية الفاتنة */
+.btn-romantic {
+  display: inline-block;
+  width: 100%;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(255, 75, 114, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-romantic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+.btn-romantic:hover::before {
+  left: 100%;
+}
+
+.btn-romantic:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 75, 114, 0.6);
+}
+
+.btn-romantic:active {
+  transform: translateY(1px);
+}
+
+/* رسالة الخطأ الأنيقة المرفقة بالاهتزاز */
+.error-message {
+  color: #ff4b72;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-shadow: 0 0 8px rgba(255, 75, 114, 0.3);
+}
+
+.error-shake {
+  animation: shakeAnimation 0.5s ease-in-out;
+}
+
+@keyframes shakeAnimation {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+/* محتويات الموقع الرئيسي (مخفي قبل تسجيل الدخول) */
+.main-content {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transform: scale(0.95);
+  z-index: 10;
+  position: relative;
+}
+
+.main-content.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* تنظيم الصفحة في كارت مركزي فخم وعريض */
+.romantic-hub {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+/* عنوان الحب الضخم والمتوهج */
+.love-title-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.love-title {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 75, 114, 0.5), 
+               0 0 20px rgba(255, 75, 114, 0.4), 
+               0 0 30px rgba(255, 75, 114, 0.3);
+  letter-spacing: 2px;
+  animation: heartbeat 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.love-subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: var(--pink-soft);
+  text-shadow: 0 0 8px rgba(255, 133, 161, 0.5);
+  margin-top: -10px;
+}
+
+/* عداد الحب الزجاجي الفاخر */
+.counter-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: var(--shadow-glow), 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.counter-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink-soft);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.counter-card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: var(--pink-primary);
+  box-shadow: 0 0 8px var(--pink-primary);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.counter-item {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px 10px;
+  transition: all 0.3s ease;
+}
+
+.counter-item:hover {
+  border-color: var(--pink-soft);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 75, 114, 0.2);
+}
+
+.counter-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ظرف الرسالة السحري */
+.envelope-wrapper {
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  width: 300px;
+  height: 200px;
+  margin: 40px auto;
+  transition: transform 0.3s ease;
+}
+
+.envelope-wrapper:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.envelope-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ff527b;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 75, 114, 0.3);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+/* الغطاء العلوي للظرف */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #ff7a99;
+  transform-origin: top;
+  z-index: 3;
+  transition: transform 0.6s ease-in-out, border-top-color 0.6s;
+}
+
+/* أطراف الظرف الأمامية */
+.envelope-pockets {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.envelope-pockets::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid #ff305c;
+  border-right: 150px solid transparent;
+  border-top: 200px solid transparent;
+}
+
+.envelope-pockets::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-right: 150px solid #ff305c;
+  border-left: 150px solid transparent;
+  border-top: 200px solid transparent;
+}
+
+.envelope-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 110px solid #ff3d6a;
+  z-index: 2;
+}
+
+/* قلب الشمع الختمي الفخم */
+.wax-seal {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #ff1744 0%, #b71c1c 100%);
+  border-radius: 50%;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wax-seal::after {
+  content: '❤️';
+  font-size: 1.4rem;
+  display: block;
+}
+
+/* الورقة المخفية بداخل الظرف */
+.letter-inside {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 270px;
+  height: 170px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: transform 0.6s ease-in-out, opacity 0.4s ease-in-out;
+  color: #333;
+  overflow: hidden;
+  text-align: center;
+}
+
+.letter-inside h3 {
+  font-family: 'Amiri', serif;
+  color: var(--pink-dark);
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.letter-inside p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* حالة فتح الظرف السحري */
+.envelope-wrapper.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+  border-top-color: #ff6085;
+}
+
+.envelope-wrapper.open .letter-inside {
+  transform: translateY(-110px);
+  z-index: 5;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.envelope-wrapper.open .wax-seal {
+  transform: translate(-50%, -50%) scale(0) rotate(360deg);
+  opacity: 0;
+}
+
+/* نافذة عرض الرسالة الضخمة التفاعلية */
+.letter-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 2, 15, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+}
+
+.letter-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-card {
+  background: radial-gradient(circle at top right, #fffdfa 0%, #fff6ec 100%);
+  border-radius: 30px;
+  border: 4px solid var(--pink-soft);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255, 75, 114, 0.3);
+  width: 100%;
+  max-width: 550px;
+  padding: 40px 30px;
+  color: #2c0e18;
+  position: relative;
+  transform: scale(0.85);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.letter-modal.active .letter-card {
+  transform: scale(1);
+}
+
+.letter-close {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  background: rgba(255, 75, 114, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--pink-dark);
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+
+.letter-close:hover {
+  background: var(--pink-primary);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.letter-text-body {
+  font-family: 'Amiri', serif;
+  font-size: 1.55rem;
+  line-height: 2;
+  text-align: center;
+  min-height: 200px;
+  white-space: pre-line;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.5rem;
+  background-color: var(--pink-primary);
+  margin-right: 4px;
+  animation: blinkCursor 0.8s infinite steps(1);
+  vertical-align: middle;
+}
+
+@keyframes blinkCursor {
+  50% { opacity: 0; }
+}
+
+/* زر تشغيل الأغنية الأسطوري مع توهج ونبض */
+.song-btn-container {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.song-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #e91e63 0%, #ff1744 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(233, 30, 99, 0.5), 0 0 40px rgba(233, 30, 99, 0.3);
+  animation: pulseSongBtn 2s infinite alternate ease-in-out;
+  transition: all 0.4s ease;
+}
+
+.song-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 30px rgba(233, 30, 99, 0.8), 0 0 50px rgba(233, 30, 99, 0.5);
+}
+
+@keyframes pulseSongBtn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); box-shadow: 0 0 25px rgba(255, 23, 68, 0.6), 0 0 45px rgba(255, 23, 68, 0.4); }
+}
+
+/* معرض الصور الفخم */
+.gallery-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-header h2 {
+  font-size: 2rem;
+  color: var(--pink-soft);
+  text-shadow: 0 0 10px rgba(255, 133, 161, 0.4);
+  position: relative;
+  display: inline-block;
+}
+
+.gallery-header h2::after {
+  content: '🌸';
+  font-size: 1.2rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* شبكة المعرض المتجاوبة */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+  }
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .love-title {
+    font-size: 3rem;
+  }
+  .counter-value {
+    font-size: 2rem;
+  }
+}
+
+/* كرت الصورة الفني الزجاجي المستوحى من الطراز القطبي (Polaroid) */
+.gallery-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 75, 114, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) rotate(1.5deg);
+  border-color: var(--pink-soft);
+  box-shadow: 0 15px 35px rgba(255, 75, 114, 0.3);
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+/* حاوية الصورة لمنع تشوه المقاسات والحفاظ على الدقة */
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 75, 114, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* خلفية رومانسية ناعمة تظهر إذا لم تتوفر الصورة بعد */
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #3d1029 0%, #1c0515 100%);
+  color: rgba(255, 133, 161, 0.4);
+  font-size: 3rem;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.image-placeholder span {
+  font-size: 0.85rem;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-caption {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  transition: color 0.3s;
+  min-height: 24px;
+  z-index: 3;
+}
+
+.gallery-item:hover .gallery-caption {
+  color: var(--pink-soft);
+}
+
+/* نافذة تكبير الصورة الفخمة (Lightbox Modal) */
+.lightbox-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 2, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 300;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-wrapper {
+  position: relative;
+  max-width: 90%;
+  max-height: 85%;
+  transform: scale(0.9);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-modal.active .lightbox-wrapper {
+  transform: scale(1);
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255, 75, 114, 0.2);
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+.lightbox-caption {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.lightbox-close:hover {
+  background: var(--pink-primary);
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* نبض رومانسي على أيقونات القلوب والورود العامة */
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 8px var(--pink-soft)); }
+}
+
+.decorative-heart {
+  font-size: 1.5rem;
+  display: inline-block;
+  animation: pulseHeart 2s infinite ease-in-out;
+  color: var(--pink-primary);
+  vertical-align: middle;
+}
+
+/* تذييل فخم وناعم للموقع */
+.romantic-footer {
+  width: 100%;
+  text-align: center;
+  padding: 40px 0 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 40px;
+}
+
+.romantic-footer p {
+  letter-spacing: 0.5px;
+}
+
+/* زر تحميل المشروع كملف ZIP للرفع على GitHub */
+.download-zip-btn-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-zip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.download-zip-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: var(--pink-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 75, 114, 0.2);
+  }
