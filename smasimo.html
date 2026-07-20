@@ -117,7 +117,7 @@
     <!-- Dynamic Glowing Ambient Orbs -->
     <div class="glowing-orb orb-pink left-0 top-1/4 w-[40vw] h-[40vw]"></div>
     <div class="glowing-orb orb-rose right-0 bottom-1/4 w-[45vw] h-[45vw]"></div>
-    <div class="glowing-orb orb-purple left-1/3 top-2/3 w-[30vw] h-[30vw]"></div> coastal landscape
+    <div class="glowing-orb orb-purple left-1/3 top-2/3 w-[30vw] h-[30vw]"></div>
 
     <!-- Floating Heart Sandbox Overlay -->
     <div id="heart-container" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
@@ -143,6 +143,7 @@
             <i data-lucide="volume-2" class="w-4 h-4"></i>
           </button>
         </div>
+
         <div class="hidden sm:flex flex-col text-[10px] pr-1 pl-2 font-medium">
           <span id="music-status-text" class="text-pink-100 flex items-center gap-1">
             انقر لتشغيل لحن الحب
@@ -191,7 +192,7 @@
           <div class="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-pink-500/20 blur-3xl transition-opacity duration-500 group-hover:bg-rose-500/30"></div>
           <div class="absolute -left-16 -bottom-16 h-32 w-32 rounded-full bg-rose-500/10 blur-3xl transition-opacity duration-500 group-hover:bg-pink-500/25"></div>
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-pink-400/40 to-transparent"></div>
-          
+
           <!-- Header info -->
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-pink-500/10 pb-6 mb-6">
             <div class="flex items-center gap-4">
@@ -294,7 +295,8 @@
                 <span class="text-3xl filter drop-shadow-[0_0_4px_rgba(244,63,94,0.6)]">💖</span>
               </div>
               <div>
-                <h3 class="text-2xl font-bold text-glow-pink tracking-tight bg-gradient-to-l from-pink-100 to-rose-300 bg-clip-text text-transparent">                  💖 أول اعتراف منك
+                <h3 class="text-2xl font-bold text-glow-pink tracking-tight bg-gradient-to-l from-pink-100 to-rose-300 bg-clip-text text-transparent">
+                  💖 أول اعتراف منك
                 </h3>
                 <p class="text-xs text-pink-300/60 font-mono tracking-wider mt-1">First Confession from You</p>
               </div>
@@ -349,7 +351,8 @@
                 <span id="c2-minutes" class="text-2xl sm:text-3xl font-bold font-serif text-pink-100 tracking-tight text-glow-white mb-1">--</span>
                 <span class="text-xs font-bold text-pink-400">دقيقة</span>
                 <span class="text-[9px] text-pink-300/40 font-mono tracking-wide">Mins</span>
-              </div><!-- Seconds -->
+              </div>
+              <!-- Seconds -->
               <div class="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-pink-950/20 to-black/40 border border-pink-500/10 p-3 sm:p-4 text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition-colors duration-300 hover:border-pink-500/20">
                 <span id="c2-seconds" class="text-2xl sm:text-3xl font-bold font-serif text-pink-100 tracking-tight text-glow-white mb-1">--</span>
                 <span class="text-xs font-bold text-pink-400">ثانية</span>
@@ -434,14 +437,8 @@
 
     <!-- Interactive Interactive Scripting -->
     <script>
-      // Initialize Lucide Icons safely
-      try {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
-      } catch (e) {
-        console.error("Lucide failed to load initially:", e);
-      }
+      // Initialize Lucide Icons
+      lucide.createIcons();
 
       // Target Confession Dates
       // Card 1: 29 June 2026, 04:43 AM (Month is 0-indexed: June is 5)
@@ -453,41 +450,33 @@
       function updateCountdowns() {
         const now = new Date();
 
-        // Update Card 1 (Handles past & future dates gracefully using absolute differences)
+        // Update Card 1
         const diff1 = now.getTime() - confession1Date.getTime();
-        const absDiff1 = Math.abs(diff1);
-        const seconds1 = Math.floor((absDiff1 / 1000) % 60);
-        const minutes1 = Math.floor((absDiff1 / (1000 * 60)) % 60);
-        const hours1 = Math.floor((absDiff1 / (1000 * 60 * 60)) % 24);
-        const days1 = Math.floor(absDiff1 / (1000 * 60 * 60 * 24));
+        if (diff1 > 0) {
+          const seconds1 = Math.floor((diff1 / 1000) % 60);
+          const minutes1 = Math.floor((diff1 / (1000 * 60)) % 60);
+          const hours1 = Math.floor((diff1 / (1000 * 60 * 60)) % 24);
+          const days1 = Math.floor(diff1 / (1000 * 60 * 60 * 24));
 
-        const elC1Days = document.getElementById('c1-days');
-        const elC1Hours = document.getElementById('c1-hours');
-        const elC1Mins = document.getElementById('c1-minutes');
-        const elC1Secs = document.getElementById('c1-seconds');
-
-        if (elC1Days) elC1Days.innerText = String(days1).padStart(2, '0');
-        if (elC1Hours) elC1Hours.innerText = String(hours1).padStart(2, '0');
-        if (elC1Mins) elC1Mins.innerText = String(minutes1).padStart(2, '0');
-        if (elC1Secs) elC1Secs.innerText = String(seconds1).padStart(2, '0');
+          document.getElementById('c1-days').innerText = String(days1).padStart(2, '0');
+          document.getElementById('c1-hours').innerText = String(hours1).padStart(2, '0');
+          document.getElementById('c1-minutes').innerText = String(minutes1).padStart(2, '0');
+          document.getElementById('c1-seconds').innerText = String(seconds1).padStart(2, '0');
+        }
 
         // Update Card 2
         const diff2 = now.getTime() - confession2Date.getTime();
-        const absDiff2 = Math.abs(diff2);
-        const seconds2 = Math.floor((absDiff2 / 1000) % 60);
-        const minutes2 = Math.floor((absDiff2 / (1000 * 60)) % 60);
-        const hours2 = Math.floor((absDiff2 / (1000 * 60 * 60)) % 24);
-        const days2 = Math.floor(absDiff2 / (1000 * 60 * 60 * 24));
+        if (diff2 > 0) {
+          const seconds2 = Math.floor((diff2 / 1000) % 60);
+          const minutes2 = Math.floor((diff2 / (1000 * 60)) % 60);
+          const hours2 = Math.floor((diff2 / (1000 * 60 * 60)) % 24);
+          const days2 = Math.floor(diff2 / (1000 * 60 * 60 * 24));
 
-        const elC2Days = document.getElementById('c2-days');
-        const elC2Hours = document.getElementById('c2-hours');
-        const elC2Mins = document.getElementById('c2-minutes');
-        const elC2Secs = document.getElementById('c2-seconds');
-
-        if (elC2Days) elC2Days.innerText = String(days2).padStart(2, '0');
-        if (elC2Hours) elC2Hours.innerText = String(hours2).padStart(2, '0');
-        if (elC2Mins) elC2Mins.innerText = String(minutes2).padStart(2, '0');
-        if (elC2Secs) elC2Secs.innerText = String(seconds2).padStart(2, '0');
+          document.getElementById('c2-days').innerText = String(days2).padStart(2, '0');
+          document.getElementById('c2-hours').innerText = String(hours2).padStart(2, '0');
+          document.getElementById('c2-minutes').innerText = String(minutes2).padStart(2, '0');
+          document.getElementById('c2-seconds').innerText = String(seconds2).padStart(2, '0');
+        }
       }
 
       setInterval(updateCountdowns, 1000);
@@ -705,6 +694,7 @@
         const color = heartColors[Math.floor(Math.random() * heartColors.length)];
         const startX = Math.random() * 100;
         const duration = Math.random() * 10 + 10;
+        
 
         heart.className = `absolute pointer-events-none opacity-40 transition-all ${color}`;
         heart.style.width = `${size}px`;
@@ -790,7 +780,7 @@
         triggerBurst(e.clientX, e.clientY);
         playSparkleSound();
       });
-      <script>
+    </script>
 const confession1 = new Date(2026, 5, 29, 4, 43, 0);
 const confession2 = new Date(2026, 5, 30, 16, 45, 0);
 
@@ -817,6 +807,5 @@ function updateAllCounters() {
 updateAllCounters();
 setInterval(updateAllCounters, 1000);
 </script>
-    </script>
   </body>
 </html>
