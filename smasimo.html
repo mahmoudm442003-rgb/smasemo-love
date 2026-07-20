@@ -143,7 +143,6 @@
             <i data-lucide="volume-2" class="w-4 h-4"></i>
           </button>
         </div>
-
         <div class="hidden sm:flex flex-col text-[10px] pr-1 pl-2 font-medium">
           <span id="music-status-text" class="text-pink-100 flex items-center gap-1">
             انقر لتشغيل لحن الحب
@@ -192,7 +191,7 @@
           <div class="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-pink-500/20 blur-3xl transition-opacity duration-500 group-hover:bg-rose-500/30"></div>
           <div class="absolute -left-16 -bottom-16 h-32 w-32 rounded-full bg-rose-500/10 blur-3xl transition-opacity duration-500 group-hover:bg-pink-500/25"></div>
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-pink-400/40 to-transparent"></div>
-
+          
           <!-- Header info -->
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-pink-500/10 pb-6 mb-6">
             <div class="flex items-center gap-4">
@@ -295,8 +294,7 @@
                 <span class="text-3xl filter drop-shadow-[0_0_4px_rgba(244,63,94,0.6)]">💖</span>
               </div>
               <div>
-                <h3 class="text-2xl font-bold text-glow-pink tracking-tight bg-gradient-to-l from-pink-100 to-rose-300 bg-clip-text text-transparent">
-                  💖 أول اعتراف منك
+                <h3 class="text-2xl font-bold text-glow-pink tracking-tight bg-gradient-to-l from-pink-100 to-rose-300 bg-clip-text text-transparent">                  💖 أول اعتراف منك
                 </h3>
                 <p class="text-xs text-pink-300/60 font-mono tracking-wider mt-1">First Confession from You</p>
               </div>
@@ -351,6 +349,474 @@
                 <span id="c2-minutes" class="text-2xl sm:text-3xl font-bold font-serif text-pink-100 tracking-tight text-glow-white mb-1">--</span>
                 <span class="text-xs font-bold text-pink-400">دقيقة</span>
                 <span class="text-[9px] text-pink-300/40 font-mono tracking-wide">Mins</span>
+              </div><!-- Seconds -->
+              <div class="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-pink-950/20 to-black/40 border border-pink-500/10 p-3 sm:p-4 text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition-colors duration-300 hover:border-pink-500/20">
+                <span id="c2-seconds" class="text-2xl sm:text-3xl font-bold font-serif text-pink-100 tracking-tight text-glow-white mb-1">--</span>
+                <span class="text-xs font-bold text-pink-400">ثانية</span>
+                <span class="text-[9px] text-pink-300/40 font-mono tracking-wide">Secs</span>
               </div>
-              <!-- Seconds -->
-              <div class="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-pink-950/20 to-black/40 border border-pink-500/10 p-3 sm:p-4 text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition-colors dura
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="flex flex-col items-center gap-4 border-t border-pink-500/10 pt-5">
+            <p class="text-sm text-pink-200/80 leading-relaxed text-center italic">
+              " اليوم التالي الذي تلونت فيه الحياة بأجمل ألوانها حين سمعت رد نبضاتك العذب يوافق نبض قلبي. "
+            </p>
+
+            <button
+              onclick="triggerHeartPulse(event)"
+              class="flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500/10 to-rose-500/20 border border-pink-500/30 px-5 py-2 text-xs text-pink-300 hover:text-pink-100 hover:border-pink-400/60 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer active:scale-95"
+            >
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-pulse text-pink-400"></i>
+              <span>أرسل نبضة حب • Send Love Pulse</span>
+            </button>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Poetic Rotating Quotes -->
+      <section class="px-2 sm:px-0">
+        <div class="relative overflow-hidden rounded-3xl border border-pink-500/10 bg-pink-950/5 p-6 md:p-8 backdrop-blur-md shadow-2xl">
+          <!-- Background heart design -->
+          <div class="absolute right-4 bottom-4 opacity-[0.03] pointer-events-none text-pink-500">
+            <i data-lucide="heart" class="w-48 h-48 fill-current"></i>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <!-- Icon banner -->
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pink-500/10 border border-pink-500/20 mb-4 shadow-[0_0_15px_rgba(236,72,153,0.15)]">
+              <i data-lucide="heart" class="w-5 h-5 text-pink-400 fill-pink-400/20 animate-pulse"></i>
+            </div>
+
+            <!-- Quote Text Container -->
+            <div class="min-h-[110px] sm:min-h-[90px] flex items-center justify-center w-full px-2 transition-opacity duration-500" id="quote-container">
+              <div>
+                <blockquote id="quote-text" class="text-base sm:text-lg text-pink-100 font-serif leading-relaxed italic md:px-6">
+                  " في قلبي حبٌ لكِ لا تسعه الأرض، ولا تصفه الحروف، أنت البداية التي لا تنتهي والجمال الذي لا يزول. "
+                </blockquote>
+                <cite id="quote-author" class="block text-xs text-pink-400/70 font-sans mt-4 not-italic font-medium">
+                  — نبضات قلب عاشق • Beats of Love
+                </cite>
+              </div>
+            </div>
+
+            <!-- Indicators and Refresh -->
+            <div class="flex items-center gap-4 mt-6">
+              <div class="flex gap-1.5" id="quote-dots">
+                <!-- Dot buttons will be generated dynamically -->
+              </div>
+
+              <button
+                id="next-quote-btn"
+                class="p-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 hover:text-pink-100 hover:bg-pink-500/20 transition-all duration-300 active:scale-90 cursor-pointer"
+                title="اقتباس آخر • Next Quote"
+              >
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Elegant Footer -->
+    <footer class="w-full text-center py-8 text-[11px] text-pink-300/30 z-20 font-mono tracking-widest mt-12 border-t border-pink-500/5">
+      <p class="flex items-center justify-center gap-2">
+        <span>MADE WITH LOVE & SECONDS OF MEMORIES</span>
+        <i data-lucide="heart" class="w-3 h-3 text-pink-500 fill-current animate-pulse"></i>
+        <span>© 2026 بداية حكايتنا</span>
+      </p>
+      <p class="text-[9px] mt-1 text-pink-300/10">PREMIUM STANDALONE REAL-TIME TICKER SERVICE</p>
+    </footer>
+
+    <!-- Interactive Interactive Scripting -->
+    <script>
+      // Initialize Lucide Icons safely
+      try {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      } catch (e) {
+        console.error("Lucide failed to load initially:", e);
+      }
+
+      // Target Confession Dates
+      // Card 1: 29 June 2026, 04:43 AM (Month is 0-indexed: June is 5)
+      const confession1Date = new Date(2026, 5, 29, 4, 43, 0);
+      // Card 2: 30 June 2026, 04:45 PM (Month is 5, Hour is 16)
+      const confession2Date = new Date(2026, 5, 30, 16, 45, 0);
+
+      // Countdown logic
+      function updateCountdowns() {
+        const now = new Date();
+
+        // Update Card 1 (Handles past & future dates gracefully using absolute differences)
+        const diff1 = now.getTime() - confession1Date.getTime();
+        const absDiff1 = Math.abs(diff1);
+        const seconds1 = Math.floor((absDiff1 / 1000) % 60);
+        const minutes1 = Math.floor((absDiff1 / (1000 * 60)) % 60);
+        const hours1 = Math.floor((absDiff1 / (1000 * 60 * 60)) % 24);
+        const days1 = Math.floor(absDiff1 / (1000 * 60 * 60 * 24));
+
+        const elC1Days = document.getElementById('c1-days');
+        const elC1Hours = document.getElementById('c1-hours');
+        const elC1Mins = document.getElementById('c1-minutes');
+        const elC1Secs = document.getElementById('c1-seconds');
+
+        if (elC1Days) elC1Days.innerText = String(days1).padStart(2, '0');
+        if (elC1Hours) elC1Hours.innerText = String(hours1).padStart(2, '0');
+        if (elC1Mins) elC1Mins.innerText = String(minutes1).padStart(2, '0');
+        if (elC1Secs) elC1Secs.innerText = String(seconds1).padStart(2, '0');
+
+        // Update Card 2
+        const diff2 = now.getTime() - confession2Date.getTime();
+        const absDiff2 = Math.abs(diff2);
+        const seconds2 = Math.floor((absDiff2 / 1000) % 60);
+        const minutes2 = Math.floor((absDiff2 / (1000 * 60)) % 60);
+        const hours2 = Math.floor((absDiff2 / (1000 * 60 * 60)) % 24);
+        const days2 = Math.floor(absDiff2 / (1000 * 60 * 60 * 24));
+
+        const elC2Days = document.getElementById('c2-days');
+        const elC2Hours = document.getElementById('c2-hours');
+        const elC2Mins = document.getElementById('c2-minutes');
+        const elC2Secs = document.getElementById('c2-seconds');
+
+        if (elC2Days) elC2Days.innerText = String(days2).padStart(2, '0');
+        if (elC2Hours) elC2Hours.innerText = String(hours2).padStart(2, '0');
+        if (elC2Mins) elC2Mins.innerText = String(minutes2).padStart(2, '0');
+        if (elC2Secs) elC2Secs.innerText = String(seconds2).padStart(2, '0');
+      }
+
+      setInterval(updateCountdowns, 1000);
+      updateCountdowns(); // Initial run
+
+      // Quotes Configuration
+      const POETIC_QUOTES = [
+        {
+          text: "في قلبي حبٌ لكِ لا تسعه الأرض، ولا تصفه الحروف، أنت البداية التي لا تنتهي والجمال الذي لا يزول.",
+          author: "نبضات قلب عاشق • Beats of Love"
+        },
+        {
+          text: "قد تظنين أنكِ لشخص واحد مجرد شخص، ولكنكِ بالنسبة لي العالم بأكمله وكل ما تمنيت.",
+          author: "حكايتنا السعيدة • Our Happy Story"
+        },
+        {
+          text: "كل ثانية تمضي بجانبك هي عمرٌ كامل من السعادة والامتنان، أدامك الله لي نبضاً وروحاً.",
+          author: "عهد الوفاء والوداد • Covenant of Devotion"
+        },
+        {
+          text: "أحبكِ ليس لما أنتِ عليه فحسب، بل لما أكون عليه عندما نكون معاً في عالمنا الخاص.",
+          author: "بوح القلوب • Echo of Hearts"
+        },
+        {
+          text: "أنتِ المأوى والوطن، وبداية كل فرح وخاتمة كل حزن، معكِ تكتمل ألوان الحياة وتزهر الروح.",
+          author: "حديث المشاعر • Whisper of Feelings"
+        }
+      ];
+
+      let currentQuoteIndex = 0;
+
+      function renderQuoteDots() {
+        const dotsContainer = document.getElementById('quote-dots');
+        dotsContainer.innerHTML = '';
+        POETIC_QUOTES.forEach((_, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `w-2 h-2 rounded-full transition-all duration-300 ${idx === currentQuoteIndex ? 'bg-pink-400 w-5' : 'bg-pink-500/20'}`;
+          btn.addEventListener('click', () => showQuote(idx));
+          dotsContainer.appendChild(btn);
+        });
+      }
+
+      function showQuote(idx) {
+        currentQuoteIndex = idx;
+        const container = document.getElementById('quote-container');
+        container.style.opacity = 0;
+        
+        setTimeout(() => {
+          document.getElementById('quote-text').innerText = `" ${POETIC_QUOTES[idx].text} "`;
+          document.getElementById('quote-author').innerText = `— ${POETIC_QUOTES[idx].author}`;
+          container.style.opacity = 1;
+          renderQuoteDots();
+        }, 300);
+      }
+
+      document.getElementById('next-quote-btn').addEventListener('click', () => {
+        const nextIdx = (currentQuoteIndex + 1) % POETIC_QUOTES.length;
+        showQuote(nextIdx);
+      });
+
+      // Auto-rotate quotes
+      setInterval(() => {
+        const nextIdx = (currentQuoteIndex + 1) % POETIC_QUOTES.length;
+        showQuote(nextIdx);
+      }, 12000);
+
+      renderQuoteDots(); // Initial render
+
+      // Ambient Generative Synthesizer Sound Box (Web Audio API)
+      let audioCtx = null;
+      let masterGain = null;
+      let sequencerTimer = null;
+      let isPlaying = false;
+      let isMuted = false;
+      let chimeNoteIndex = 0;
+
+      const MELODY_NOTES = [
+        261.63, 329.63, 392.00, 493.88, // Cmaj7: C4, E4, G4, B4
+        349.23, 440.00, 523.25, 659.25, // Fmaj7: F4, A4, C5, E5
+        392.00, 493.88, 587.33, 783.99, // G: G4, B4, D5, G5
+        440.00, 523.25, 659.25, 880.00  // Am: A4, C5, E5, A5
+      ];
+
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContextClass();
+          masterGain = audioCtx.createGain();
+          masterGain.gain.setValueAtTime(0.12, audioCtx.currentTime); // Safe warm volume
+          masterGain.connect(audioCtx.destination);
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+      }
+
+      function playSingleChime(freq, duration = 1.8, volume = 0.25) {
+        if (!audioCtx || isMuted) return;
+
+        const osc = audioCtx.createOscillator();
+        osc.type = "sine";
+
+        const gainNode = audioCtx.createGain();
+        const delay = audioCtx.createDelay();
+        delay.delayTime.value = 0.35;
+        const delayGain = audioCtx.createGain();
+        delayGain.gain.value = 0.3;
+
+        // Route oscillator to master gain node
+        osc.connect(gainNode);
+        gainNode.connect(masterGain);
+
+        // Sweet delay echo effect channel
+        gainNode.connect(delay);
+        delay.connect(delayGain);
+        delayGain.connect(delay);
+        delayGain.connect(masterGain);
+
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        // Sweet exponent decay bell volume curve
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + 0.05);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + duration + 1);
+      }
+
+      function playSparkleSound() {
+        initAudio();
+        if (!audioCtx || isMuted) return;
+
+        const sparkFreqs = [880.00, 1046.50, 1318.51, 1567.98, 1975.53];
+        sparkFreqs.forEach((freq, idx) => {
+          setTimeout(() => {
+            const osc = audioCtx.createOscillator();
+            osc.type = "sine";
+            const gain = audioCtx.createGain();
+
+            osc.connect(gain);
+            gain.connect(masterGain);
+
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.45);
+
+            osc.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + 0.5);
+          }, idx * 65);
+        });
+      }
+
+      function scheduleNextChime() {
+        if (!isPlaying || isMuted) return;
+        const freq = MELODY_NOTES[chimeNoteIndex];
+        playSingleChime(freq);
+        chimeNoteIndex = (chimeNoteIndex + 1) % MELODY_NOTES.length;
+        sequencerTimer = setTimeout(scheduleNextChime, 1500);
+      }
+
+      // Music controls
+      const playBtn = document.getElementById('toggle-play-btn');
+      const muteBtn = document.getElementById('toggle-mute-btn');
+      const statusText = document.getElementById('music-status-text');
+      const subText = document.getElementById('music-sub-text');
+
+      playBtn.addEventListener('click', () => {
+        initAudio();
+        if (!isPlaying) {
+          isPlaying = true;
+          muteBtn.removeAttribute('disabled');
+          playBtn.classList.add('bg-pink-500/20', 'border-pink-400', 'shadow-[0_0_10px_rgba(236,72,153,0.3)]');
+          statusText.innerHTML = `<i data-lucide="sparkles" class="w-3 h-3 text-pink-400 animate-pulse"></i> <span>نغمة حكايتنا تعزف حية</span>`;
+          subText.innerText = "COZY MUSIC BOX ACTIVE";
+          lucide.createIcons();
+          scheduleNextChime();
+        } else {
+          isPlaying = false;
+          clearTimeout(sequencerTimer);
+          playBtn.classList.remove('bg-pink-500/20', 'border-pink-400', 'shadow-[0_0_10px_rgba(236,72,153,0.3)]');
+          statusText.innerText = "انقر لتشغيل لحن الحب";
+          subText.innerText = "AMBIENT CHIMES READY";
+        }
+      });
+
+      muteBtn.addEventListener('click', () => {
+        initAudio();
+        isMuted = !isMuted;
+        if (isMuted) {
+          muteBtn.classList.add('bg-rose-500/10', 'border-rose-500/30', 'text-rose-400/80');
+          muteBtn.innerHTML = `<i data-lucide="volume-x" class="w-4 h-4"></i>`;
+        } else {
+          muteBtn.classList.remove('bg-rose-500/10', 'border-rose-500/30', 'text-rose-400/80');
+          muteBtn.innerHTML = `<i data-lucide="volume-2" class="w-4 h-4"></i>`;
+          if (isPlaying) scheduleNextChime();
+        }
+        lucide.createIcons();
+      });
+
+      // Floating Hearts & Burst generator
+      const heartContainer = document.getElementById('heart-container');
+      const heartColors = [
+        "text-pink-500",
+        "text-rose-500",
+        "text-red-500",
+        "text-pink-400",
+        "text-rose-400"
+      ];
+
+      function createFloatingBackgroundHeart() {
+        const heart = document.createElement('div');
+        const size = Math.random() * 20 + 10;
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        const startX = Math.random() * 100;
+        const duration = Math.random() * 10 + 10;
+
+        heart.className = `absolute pointer-events-none opacity-40 transition-all ${color}`;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        heart.style.bottom = `-10vh`;
+        heart.style.left = `${startX}vw`;
+        
+        heart.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full drop-shadow-[0_0_8px_rgba(236,72,153,0.3)]">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        `;
+
+        heartContainer.appendChild(heart);
+
+        // Animate up
+        const keyframes = [
+          { transform: `translateY(0) scale(0.5) translateX(0)`, opacity: 0 },
+          { opacity: 0.7, offset: 0.1 },
+          { transform: `translateY(-115vh) scale(1) translateX(${(Math.random() * 15 - 7)}vw)`, opacity: 0 }
+        ];
+
+        heart.animate(keyframes, {
+          duration: duration * 1000,
+          easing: "ease-in-out"
+        }).onfinish = () => heart.remove();
+      }
+
+      // Periodically trigger background hearts
+      setInterval(createFloatingBackgroundHeart, 2500);
+
+      // Burst interactive hearts
+      function triggerBurst(x, y) {
+        const burstCount = 6;
+        for (let i = 0; i < burstCount; i++) {
+          const heart = document.createElement('div');
+          const size = Math.random() * 14 + 12;
+          const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+          const angle = (i / burstCount) * 2 * Math.PI + (Math.random() * 0.4 - 0.2);
+          const distance = Math.random() * 100 + 50;
+
+          heart.className = `absolute pointer-events-none transition-all ${color}`;
+          heart.style.width = `${size}px`;
+          heart.style.height = `${size}px`;
+          heart.style.left = `${x - size / 2}px`;
+          heart.style.top = `${y - size / 2}px`;
+
+          heart.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full drop-shadow-[0_0_10px_currentColor]">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          `;
+
+          heartContainer.appendChild(heart);
+
+          const targetX = Math.cos(angle) * distance;
+          const targetY = Math.sin(angle) * distance;
+
+          heart.animate([
+            { transform: 'translate(0, 0) scale(0.2) rotate(0deg)', opacity: 1 },
+            { transform: `translate(${targetX}px, ${targetY}px) scale(1.3) rotate(${Math.random() * 120 - 60}deg)`, opacity: 0 }
+          ], {
+            duration: 1000,
+            easing: "ease-out"
+          }).onfinish = () => heart.remove();
+        }
+      }
+
+      // Handle custom "Love Pulse" button clicks
+      window.triggerHeartPulse = function(e) {
+        e.stopPropagation();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = rect.left + rect.width / 2;
+        const clickY = rect.top + rect.height / 2;
+        triggerBurst(clickX, clickY);
+        playSparkleSound();
+      }
+
+      // Handle screen-wide clicks
+      document.body.addEventListener('click', (e) => {
+        // Exclude interactive elements like buttons and players
+        if (e.target.closest('button') || e.target.closest('a')) return;
+        triggerBurst(e.clientX, e.clientY);
+        playSparkleSound();
+      });
+      <script>
+const confession1 = new Date(2026, 5, 29, 4, 43, 0);
+const confession2 = new Date(2026, 5, 30, 16, 45, 0);
+
+function updateCounter(startDate, prefix) {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById(prefix + "-days").textContent = days;
+    document.getElementById(prefix + "-hours").textContent = hours.toString().padStart(2,"0");
+    document.getElementById(prefix + "-minutes").textContent = minutes.toString().padStart(2,"0");
+    document.getElementById(prefix + "-seconds").textContent = seconds.toString().padStart(2,"0");
+}
+
+function updateAllCounters() {
+    updateCounter(confession1, "c1");
+    updateCounter(confession2, "c2");
+}
+
+updateAllCounters();
+setInterval(updateAllCounters, 1000);
+</script>
+    </script>
+  </body>
+</html>
